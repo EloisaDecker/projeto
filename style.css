@@ -178,18 +178,18 @@ footer {
   }
 }
 
-/* animation */
+/* animation*/ 
 @keyframes slide-in {
   from {
     left: 0;
   }
   to {
     left: 50%;
-  }
+  }  
 }
 
 @keyframes slide-back {
-  from {
+  form {
     left: 50%;
   }
   to {
