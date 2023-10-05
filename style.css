@@ -19,8 +19,8 @@
   --bg-url: url(./assets/bg-mobile-light.jpg);
   --stroke-color: rgba(0, 0, 0, 0.5);
   --surface-color: rgba(0, 0, 0, 0.05);
-  --surface-color-hover: rgba(0, 0, 0, 0.2);
-  --highlight-color:rgba(0, 0, 0, 0.10);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color:rgba(0, 0, 0, 0.1);
   --switch-bg-url: url(assets/sun.svg)
  }
 
@@ -64,7 +64,7 @@ body * {
  position: relative;
  width: 64px;
 
- margin: 0 auto;
+ margin: 4px auto;
   
 }
 
@@ -80,23 +80,24 @@ body * {
  left: 0;
  z-index: 1; 
  transform: translateY(-50%);
+
+ animation: slide-back 0.2s;
 }
 
 .light #switch  button {
-right: 0;
-left: initial;
+  outline: 8px sold var(--highlight-color);
 }
 
 #switch span {
- display: block;
+  display: block;
  width: 64px;
  height: 24px;
  background: var(--surface-color);
  border: 1px solid var(--stroke-color);
+ backdrop-filter: blur (4px);
  -webkit-backdrop-filter: blur(4px);
  border-radius: 9999px;
-
-}
+ }
 
 /* links */
 ul {
@@ -109,7 +110,7 @@ ul {
   padding: 24px 0;
 }
 
-ul li a {
+ ul li a {
 
   display: flex;
   align-items: center;
@@ -166,13 +167,32 @@ footer {
   font-size: 14px;
 }
 
-/*media queries */
-@media (min-width:700px) {
-  .root {
-    --bg-url: url(./assets/bg-desktop.jpg)
+/* media queries */
+@media (min-width: 700px) {
+  :root {
+    --bg-url: url(./assets/bg-desktop.jpg);
   }
 
   .light {
-    --bg-url: url(./assets/bg-desktop-light.jpg)
+    --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+/* animation */
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
   }
 }
